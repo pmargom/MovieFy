@@ -1,0 +1,12 @@
+
+<div class="favorito">
+    <div>
+        <div>
+            <i class="fa fa-2x"
+               ng-class="{ 'fa-star': isFav(), 'fa-star-o': !isFav() }"
+               ng-click="markAsFav($event)"
+               title="{{ !isFav() && 'mark as favourite' || 'unmark as favourite' }}"
+            ></i>
+        </div>
+    </div>
+</div>

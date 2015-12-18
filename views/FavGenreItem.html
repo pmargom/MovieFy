@@ -1,0 +1,14 @@
+<td class="col-fav-size">
+    <fav-genre-fav
+            genre="genre"
+            on-star-change="starChanged()"
+    ></fav-genre-fav>
+</td>
+<td class="col-fix-size">
+    {{ ::genre.name }}
+</td>
+<td>
+    <div class="genre-album-image" ng-repeat="album in genre.albums track by album.id">
+        <genre-album-item album="album"/>
+    </div>
+</td>

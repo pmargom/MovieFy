@@ -1,0 +1,23 @@
+<td class="col-fav-size">
+    <fav-album-fav
+            album="album"
+            on-star-change="starChanged()"
+    ></fav-album-fav>
+</td>
+<td>
+    <img ng-src="images/{{ album.image }}" ng-if="album.image" alt="Imagen" width="64px" height="64px" class="img-rounded" />
+</td>
+<td>
+    <p>{{ album.title }}</p>
+    <div>
+        <small>
+            {{ album.band | albumFirma:album.year }}
+        </small>
+    </div>
+</td>
+<td>
+    <p>{{ album.genre.name }}</p>
+</td>
+<td class="celda-centrada">
+    {{ album.tracklist.length }}
+</td>

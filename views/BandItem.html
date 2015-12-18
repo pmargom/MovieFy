@@ -1,0 +1,24 @@
+<td class="col-fav-size">
+    <band-fav band="band"></band-fav>
+</td>
+<td>
+    <img ng-src="images/{{ band.albums[band.albums.length-1].image }}"
+         ng-if="band.albums[band.albums.length-1].image"
+         alt="Last album: {{ band.albums[band.albums.length-1].title }}"
+         title="Last album: {{ band.albums[band.albums.length-1].title }}"
+         width="64px"
+         height="64px"
+         class="img-rounded" />
+</td>
+<td>
+    <p>{{ ::band.name }}</p>
+</td>
+<td>
+    <p>{{ ::band.origin }}</p>
+</td>
+<td class="celda-centrada">
+    {{ ::band.members.length }}
+</td>
+<td class="celda-centrada">
+    {{ ::band.albums.length }}
+</td>

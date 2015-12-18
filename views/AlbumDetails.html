@@ -1,0 +1,44 @@
+<div>
+    <ol class="breadcrumb">
+        <li><a href="#/albums">Albums</a></li>
+        <li class="active">{{ ::album.title }}</li>
+    </ol>
+</div>
+<article class="detalle">
+
+    <div>
+        <img ng-src="images/{{ ::album.image }}" alt="Imagen" width="450px" height="450px" class="img-rounded" />
+    </div>
+    <div>
+        <div class="fav-details">
+            <album-fav album="album"></album-fav>
+        </div>
+
+        <h4>{{ ::album.title }}</h4>
+        <small>
+            {{ ::album.band | albumFirma:album.year }}
+            <br>
+            {{ ::album.genre.name }}
+        </small>
+
+        <div class="track-list">
+            <h5>Tracks</h5>
+            <div>
+                <ol>
+                    <li ng-repeat="track in album.tracklist">
+                        <track
+                                band-name="album.band.name"
+                                track-name="track">
+                        </track>
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <div>
+            <button class="btn btn-info" ng-click="volver()">
+                <i class="glyphicon glyphicon-chevron-left"></i>
+                <span>Volver</span>
+            </button>
+        </div>
+    </div>
+</article>

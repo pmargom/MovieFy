@@ -1,0 +1,26 @@
+
+<div>
+    <ol class="breadcrumb">
+        <li><a href="#/genres">Genres</a></li>
+        <li class="active">{{ ::genre.name }}</li>
+    </ol>
+</div>
+
+<div>
+    <article class="detalle">
+        <div ng-repeat="album in genre.albums track by album.id">
+           <album
+                   album="album"
+                   on-item-click="navegar(idAlbum)"
+           ></album>
+        </div>
+    </article>
+</div>
+<div class="breadcrumb"></div>
+<div>
+    <button class="btn btn-info" ng-click="volver()">
+        <i class="glyphicon glyphicon-chevron-left"></i>
+        <span>Volver</span>
+    </button>
+</div>
+
