@@ -1,5 +1,5 @@
 
-angular.module("jeviteca").filter("albumFirma", function() {
+angular.module("moviefy").filter("albumFirma", function() {
 
    // Los filtros siempre retornes funciones.
    // Además, siempre tienen al menos un parámetro, que es el dato de entrada.

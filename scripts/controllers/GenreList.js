@@ -1,6 +1,6 @@
 
 // Controlador encargado de la lógica correspondiente con vista de la lista de álbumes.
-angular.module("jeviteca").controller("GenreListCtrl", function($scope, Genres, $location, $timeout) {
+angular.module("moviefy").controller("GenreListCtrl", function($scope, Genres, $location, $timeout) {
 
    // Almacenamos en local la lista de álbumes para que no se muestren
    // todos directamente en la vista.

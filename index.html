@@ -1,106 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Jeviteca</title>
-    <!-- Cargamos los estilos de Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-    <!-- Cargamos los estilos de Font Awesome -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <!-- Cargamos los estilos de angular-loading-bar -->
-    <link rel="stylesheet" href="styles/loading-bar.min.css" />
-    <!-- Cargamos los estilos de la aplicación -->
-    <link rel="stylesheet" href="styles/jeviteca.css" />
-</head>
-<body ng-app="jeviteca">
+    <!--<meta charset="UTF-8">-->
 
-<!-- Contenedor general de la aplicación -->
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-10 col-lg-offset-1">
-            <!-- Cabecera -->
-            <header>
-                <h1>Jeviteca</h1>
-            </header>
-            <!-- Barra de navegación -->
-            <nav ng-controller="BarraNavegacionCtrl" class="barra-navegacion">
-                <ul class="nav nav-tabs">
-                    <li role="presentation" ng-class="{ 'active': rutaEsAlbums() }">
-                        <a href="#/albums">Álbumes</a>
-                    </li>
-                    <li role="presentation" ng-class="{ 'active': rutaEsBands() }">
-                        <a href="#/bands">Bandas</a>
-                    </li>
-                    <li role="presentation" ng-class="{ 'active': rutaEsGenres() }">
-                        <a href="#/genres">Géneros</a>
-                    </li>
-                </ul>
-            </nav>
-            <!-- Contenedor de las vistas -->
-            <section ng-view></section>
+    <!--<title>MovieFy</title>-->
+    <!-- Loading Bootstrap styles -->
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">-->
+    <!-- Loading Font Awesome styles -->
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">-->
+    <!-- Loading angular-loading-bar styles -->
+    <link rel="stylesheet" href="styles/loading-bar.min.css" />
+
+    <title>Welcome to MovieFy</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="MovieFy: a humble movie finder!!" />
+    <meta name="revisit-after" content="1 day" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta id="viewport" name="viewport" content="width=320, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link href="styles/ubuntu.css" rel="stylesheet" type="text/css">
+    <!--[if lt IE 10]>
+    <link href="styles/packtpub_ie.css" rel="stylesheet" type="text/css">
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" media="all" href="styles/una.css" />
+
+</head>
+<body ng-app="moviefy">
+
+<!-- app general container -->
+
+<div id="page" class="" checkout="">
+
+    <div id="main-container" class="not-front not-logged-in page-all no-sidebars page-all section-all ">
+        <div id="main" class="">
+
+            <!-- #content -->
+            <div id="content">
+                <div id="title-bar" class="title-bar-orange" >
+                    <div class="section-inner cf">
+                        <div id="title-bar-breadcrumb">
+                            <div class="breadcrumb">
+
+                                <a href="#/movies">Home</a>&nbsp; > &nbsp;
+                                <a href="#/movies" class="active">Movies</a>&nbsp;
+                            </div>
+                        </div>
+                        <div id="title-bar-title"><h1>All movies</h1></div>
+                        <div id="title-bar-right"></div>
+                    </div>
+                </div>
+
+                <div class="section-inner cf">
+                    <div id="messages-container">
+                    </div>
+                </div>
+
+                <a name="main-content" id="main-content"></a>
+                <section ng-view></section>
+
+            </div>
+            <!-- /#content -->
+
         </div>
     </div>
+
+    <!-- #footer-bottom -->
+    <div id="footer-bottom" class="region region-footer-bottom">
+        <div class="section-inner cf">
+            <div class="footer-bottom-block">
+                <div class="footer-bottom-block-left">
+
+                    <br />
+
+                </div>
+            </div>
+            <div class="footer-bottom-block footer-contact-us">
+                <a href="/books/info/packt/contact-us">Contact Us</a>
+            </div>
+            <div class="footer-bottom-block">
+
+            </div>
+            <div class="footer-bottom-block">
+
+            </div>
+            <div class="footer-bottom-block">
+            </div>
+        </div>
+    </div>
+    <!-- /#footer-bottom -->
+
 </div>
 
-<!-- Cargamos la librería de AngularJS -->
+<!-- Loading AngularJS and other javascript libraries -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-<!-- Cargamos dependencias de terceros -->
+
+<!-- Loading third party dependencies -->
 <script src="vendor/loading-bar.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.min.js"></script>
-<!-- Cargamos app.js -->
+
+<!-- Loading app.js -->
 <script src="scripts/app.js"></script>
-<!-- Cargamos los servicios -->
+
+<!-- Loading services -->
 <script src="scripts/services/MyServices.js"></script>
-<!-- Cargamos los constants -->
+
+<!-- Loading constants -->
 <script src="scripts/constants/Properties.js"></script>
-<!-- Cargamos los providers -->
+
+<!-- Loading los providers -->
 <script src="scripts/providers/Backend.js"></script>
-<!-- Cargamos los filtros -->
-<script src="scripts/filters/AlbumFirma.js"></script>
-<script src="scripts/filters/AlbumFirmaBis.js"></script>
-<script src="scripts/filters/TrackVideo.js"></script>
-<script src="scripts/filters/MemberInfo.js"></script>
-<script src="scripts/filters/BandInfo.js"></script>
-<script src="scripts/filters/Instruments.js"></script>
 
-<!-- Cargamos los controladores -->
-<script src="scripts/controllers/BarraNavegacion.js"></script>
+<!-- Loading filters -->
+<script src="scripts/filters/BuildImage.js"></script>
 
-<script src="scripts/controllers/AlbumList.js"></script>
-<script src="scripts/controllers/FavAlbumList.js"></script>
-<script src="scripts/controllers/AlbumDetails.js"></script>
+<!-- Loading controllers -->
+<script src="scripts/controllers/MovieList.js"></script>
 
-<script src="scripts/controllers/BandList.js"></script>
-<script src="scripts/controllers/FavBandList.js"></script>
-<script src="scripts/controllers/BandDetails.js"></script>
+<!-- Loading directives -->
+<script src="scripts/directives/MovieItem.js"></script>
 
-<script src="scripts/controllers/GenreList.js"></script>
-<script src="scripts/controllers/FavGenreList.js"></script>
-<script src="scripts/controllers/GenreDetails.js"></script>
 
-<!-- Cargamos las directivas -->
-<script src="scripts/directives/AlbumItem.js"></script>
-<script src="scripts/directives/AlbumFav.js"></script>
-<script src="scripts/directives/FavAlbumItem.js"></script>
-<script src="scripts/directives/FavAlbumFav.js"></script>
-<script src="scripts/directives/Track.js"></script>
-<script src="scripts/directives/Band.js"></script>
-<script src="scripts/directives/Member.js"></script>
-<script src="scripts/directives/Album.js"></script>
-
-<script src="scripts/directives/BandItem.js"></script>
-<script src="scripts/directives/BandFav.js"></script>
-<script src="scripts/directives/FavBandItem.js"></script>
-<script src="scripts/directives/FavBandFav.js"></script>
-
-<script src="scripts/directives/GenreItem.js"></script>
-<script src="scripts/directives/GenreFav.js"></script>
-<script src="scripts/directives/GenreAlbumItem.js"></script>
-<script src="scripts/directives/FavGenreItem.js"></script>
-<script src="scripts/directives/FavGenreFav.js"></script>
 
 </body>
 </html>

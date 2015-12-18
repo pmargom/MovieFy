@@ -1,5 +1,5 @@
 
-angular.module("jeviteca").filter("BandInfo", function(Properties) {
+angular.module("moviefy").filter("BandInfo", function(Properties) {
 
    return function getWikipediaLink(bandName) {
 

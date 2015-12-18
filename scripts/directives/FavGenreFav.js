@@ -1,4 +1,4 @@
-angular.module("jeviteca").directive("favGenreFav", function() {
+angular.module("moviefy").directive("favGenreFav", function() {
 
    return {
       restrict: "E",

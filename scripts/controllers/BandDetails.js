@@ -1,5 +1,5 @@
 
-angular.module("jeviteca").controller("BandDetailsCtrl", function($scope, Band) {
+angular.module("moviefy").controller("BandDetailsCtrl", function($scope, Band) {
 
    //debugger;
    $scope.band = Band;

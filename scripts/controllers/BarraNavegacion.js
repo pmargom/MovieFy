@@ -1,5 +1,5 @@
 // Controlador de la barra de navegación.
-angular.module("jeviteca").controller("BarraNavegacionCtrl", function($scope, $route) {
+angular.module("moviefy").controller("BarraNavegacionCtrl", function($scope, $route) {
 
    // Comprobamos si la ruta navegada es "/albums".
    $scope.rutaEsAlbums = function() {

@@ -1,5 +1,5 @@
 // Directiva que representa cada fila en la lista de genreas.
-angular.module("jeviteca").directive("elementoFavGenre", function() {
+angular.module("moviefy").directive("elementoFavGenre", function() {
 
    return {
 

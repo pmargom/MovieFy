@@ -1,5 +1,5 @@
 
-angular.module("jeviteca").controller("GenreDetailsCtrl", function($scope, Genre, $location, $timeout) {
+angular.module("moviefy").controller("GenreDetailsCtrl", function($scope, Genre, $location, $timeout) {
 
    //debugger;
    $scope.genre = Genre;

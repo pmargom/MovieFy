@@ -1,4 +1,4 @@
-angular.module("jeviteca").directive("favBandFav", function(Backend, $timeout) {
+angular.module("moviefy").directive("favBandFav", function(Backend, $timeout) {
 
    return {
       restrict: "E",

@@ -1,4 +1,4 @@
-angular.module("jeviteca").directive("album", function() {
+angular.module("moviefy").directive("album", function() {
 
    return {
 

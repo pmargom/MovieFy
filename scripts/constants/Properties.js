@@ -1,11 +1,7 @@
 
-// En los constants y values definimos las propiedades de la aplicación.
-// Usamos constant en este caso porque necesito inyectarlo en fase de config.
-angular.module("jeviteca").constant("Properties", {
-   albums: "/data/albums.json",
-   bands: "/data/bands.json",
-   genres: "/data/genres.json",
-   urlSearchVideo: "https://www.youtube.com/results?search_query=", // por si en el futuro cambiamos, por ejemplo, a vimeo
-   urlSearchMembers: "https://www.google.es/search?q=",
-   urlSearchWiki: "https://es.wikipedia.org/wiki/Special:Search?search="
+
+angular.module("moviefy").constant("Properties", {
+   apiKey: "e8c6d35a6bd555573d4b93aff5b6743b",
+   backendUrl: "https://api.themoviedb.org/3/discover",
+   backendImagesUrl: "https://image.tmdb.org/t/p/w185"
 });

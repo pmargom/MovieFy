@@ -4,7 +4,7 @@
 div.loading-spinner {
     border: 0px;
     background-color: transparent;
-    background-image: url(/sites/all/themes/packt_v4/images/ajax-loader.gif);
+    /*background-image: url(/sites/all/themes/packt_v4/images/ajax-loader.gif);*/
     background-repeat: no-repeat;
     background-position: center;
     margin-left: 25px;

@@ -1,5 +1,5 @@
 // Directiva que representa cada fila en la lista de bandas.
-angular.module("jeviteca").directive("elementoFavBand", function() {
+angular.module("moviefy").directive("elementoFavBand", function() {
 
    return {
 

@@ -1,5 +1,5 @@
 
-angular.module("jeviteca").filter("Instruments", function() {
+angular.module("moviefy").filter("Instruments", function() {
 
    return function(collection) {
 

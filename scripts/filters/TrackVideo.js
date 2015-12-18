@@ -1,5 +1,5 @@
 
-angular.module("jeviteca").filter("TrackVideo", function(Properties) {
+angular.module("moviefy").filter("TrackVideo", function(Properties) {
 
    return function getYouTubeLink(bandName,	trackName) {
       //debugger;

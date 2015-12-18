@@ -1,5 +1,5 @@
 
-angular.module("jeviteca").filter("albumFirmaBis", function() {
+angular.module("moviefy").filter("albumFirmaBis", function() {
 
    return function(band, year) {
 

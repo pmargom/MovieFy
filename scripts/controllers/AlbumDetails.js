@@ -1,5 +1,5 @@
 
-angular.module("jeviteca").controller("AlbumDetailsCtrl", function($scope, Album) {
+angular.module("moviefy").controller("AlbumDetailsCtrl", function($scope, Album) {
 
    //debugger;
    $scope.album = Album;

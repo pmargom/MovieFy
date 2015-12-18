@@ -1,6 +1,6 @@
 
 // Controlador encargado de la lógica correspondiente con vista de la lista de bandas.
-angular.module("jeviteca").controller("BandListCtrl", function($scope, Bands, $location, $timeout) {
+angular.module("moviefy").controller("BandListCtrl", function($scope, Bands, $location, $timeout) {
 
    // Almacenamos en local la lista de bandas para que no se muestren
    // todos directamente en la vista.

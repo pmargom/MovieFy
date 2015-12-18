@@ -1,6 +1,6 @@
 
 // Controlador encargado de la lógica correspondiente con vista de la lista de géneros.
-angular.module("jeviteca").controller("FavGenreListCtrl", function($scope, Genres, $location, $timeout) {
+angular.module("moviefy").controller("FavGenreListCtrl", function($scope, Genres, $location, $timeout) {
 
    // Almacenamos en local la lista de géneros para que no se muestren
    // todos directamente en la vista.

@@ -1,5 +1,5 @@
 
-angular.module("jeviteca").filter("MemberInfo", function(Properties) {
+angular.module("moviefy").filter("MemberInfo", function(Properties) {
 
    return function getMemberInfo(memberName) {
       //debugger;

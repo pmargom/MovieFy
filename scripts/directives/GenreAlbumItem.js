@@ -1,5 +1,5 @@
 
-angular.module("jeviteca").directive("genreAlbumItem", function() {
+angular.module("moviefy").directive("genreAlbumItem", function() {
 
    return {
 

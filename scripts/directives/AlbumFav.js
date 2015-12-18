@@ -1,4 +1,4 @@
-angular.module("jeviteca").directive("albumFav", function() {
+angular.module("moviefy").directive("albumFav", function() {
 
    return {
       restrict: "E",
