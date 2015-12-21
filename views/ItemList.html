@@ -1,0 +1,100 @@
+
+<div class="panel-display panel-packt-cat clear-block" >
+    <div class="panel-panel-top-wrapper">
+        <div class="panel-panel panel-col-first">
+            <div class="inside">
+                <div class="panel-pane">
+                    <div class="content">
+                        <form action="/all"  accept-charset="UTF-8" method="GET" id="packt-nodesearch-block-facets-form">
+                            <div>
+                                <h2>Filter Your Search </h2>
+                                <div class="packt-cat-form cf">
+                                    <div id="packt-cat-form-search" class="cf">
+                                        <div id="cat-search-title" class="facet-heading facing-bottom">
+                                            Search Movies
+                                        </div>
+                                        <div class="form-item" id="edit-search-wrapper">
+                                            <input ng-model="searchText" type="text" placeholder="Search for a keyword"/>
+                                        </div>
+                                        <div class="facet-search-logo"></div>
+                                        <div class="facet-search-cross"></div>
+
+                                        <div id="packt-cat-form-filters" >
+
+                                            <div class="facet-category-global-wrapper">
+                                                <div class="facet-main-heading" id="facet-main-header">
+                                                    Filter Your Search
+                                                    <span class="facet-category-toggle facet-expand-category float-right">&#9660;</span>
+                                                    <span class="facet-category-toggle facet-hide-category float-right">&#9650;</span>
+                                                </div>
+                                                <div class="facet-category-list">
+                                                    <div class="facet-category-main-wrapper">
+                                                        <div class="facet-heading facing-bottom">
+                                                            Movie or Serie
+                                                            <span class="facet-category-toggle facet-expand-category float-right">&#9660;</span>
+                                                            <span class="facet-category-toggle facet-hide-category float-right">&#9650;</span>
+                                                        </div>
+                                                        <div ng-show="isMovie()" class="facet-cat-wrapper cf">
+                                                            <div class="facet-cat-text" style="margin-left: 13px">Movies ({{::nItems }})</div>
+                                                        </div>
+                                                        <div ng-show="isSerie()" class="facet-cat-wrapper cf">
+                                                            <div class="facet-cat-text" style="margin-left: 13px">Series ({{::nItems}})</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-panel panel-col-last">
+            <div class="inside">
+                <div class="panel-pane">
+                    <div class="content">
+                        <span class="saved-link">
+                            <a name="main-content" id="main-content">Load saved movies</a>
+                        </span>
+
+                        <div class="paginator_top">
+                            <div class="solr-pager cf">
+
+                                <div class="solr-pager-page-selector">
+                                    &nbsp;
+                                    <div class="paginationclass">
+                                    <uib-pagination
+                                            ng-change="pagination.pageChange()"
+                                            ng-model="pagination.currentPage"
+                                            total-items="pagination.totalItems"
+                                            items-per-page="pagination.itemsPerPage"
+                                            boundary-links="true"
+                                            first-text="&lt;&lt;"
+                                            last-text="&gt;&gt;"
+                                            previous-text="&lt;"
+                                            next-text="&gt;">
+                                    </uib-pagination>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <span ng-show="::nItems | checkResults" style="font-size: 1.75em">No results were found.</span>
+                        <span ng-show="::nItems | checkResults">No results were found.</span>
+                        <span ng-repeat="item in items | filter:searchText">
+                            <item item="item" type="getType()"></item>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="cf"></div>
+</div>

@@ -31,40 +31,31 @@ angular.module("moviefy").provider("Backend", function($httpProvider) {
          backendImagesUrl = value;
       },
 
-      $get: ["$http", "$q", function($http, $q) {
+      $get: ["$http", "$q", "$location", "Properties", function($http, $q, $location, Properties) {
 
          return {
 
-            // get the list of movies
-            getMovies: function() {
+            // get the list of items
+            getItems: function() {
 
-               var fullUrl = backendUrl + "/movie?api_key=" + apiKey;
-               return $http.get(fullUrl, {
-                  cache: true
-               });
+               var itemType = $location.$$path.indexOf("movies") > -1 ? Properties.itemType.Movie : Properties.itemType.Serie;
+               var fullUrl = backendUrl + "/" + itemType + "?api_key=" + apiKey;
 
-               /*var defer = $q.defer();
+               var defer = $q.defer();
 
-               var fullUrl = backendUrl + "movie?api_key=" + Properties.backendUrl;
                $http.get(fullUrl).then(
                   function (resp) {
 
-                     debugger;
-                     var item = _.find(resp.data, function(it){ return it.id == idAlbum; }); // con === no lo encuentra
-                     if (typeof(item) !== "undefined") {
-                        defer.resolve(item);
-                     }
-                     else {
-                        defer.reject(null);
-                     }
+                     //debugger;
+                     defer.resolve(resp.data);
                   },
                   function (error) {
-                     debugger;
+                     //debugger;
                      defer.reject(error);
                   }
                );
 
-               return defer.promise;*/
+               return defer.promise;
             }
 
          };

@@ -1,3 +1,55 @@
+/* CUSTOM CSS */
+.saved-link {
+    border: solid 0px red;
+    font-size: 1.75em;
+    float: right;
+    margin-right: 150px;
+    text-decoration: underline;
+}
+
+.book-block-price a {
+    border: solid 0px red;
+    float: right;
+    margin-top: -20px;
+}
+
+.navigation-bar {
+    font-size: 2.0em;
+}
+
+.nav-tabs>li>a:hover {
+    border-color: #eee #eee #ddd;
+    background-color: #4f6de7;
+}
+
+.nav-tabs>li {
+    float: left;
+    margin-bottom: -1px;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    color: #555;
+    cursor: default;
+    background-color: #4f6de7;
+    border: 1px solid #ddd;
+    border-bottom-color: transparent;
+}
+
+.nav-tabs {
+    /*border-bottom: 1px solid #4f6de7 ;*/
+    margin-top: 43px;
+    margin-left: -55px;
+}
+
+.paginationclass{
+    /*border: solid 1px red;*/
+    width: 450px;
+    margin: 19px 28px;
+}
+
+
+/*END CUSTOM CSS */
+
 #permissions td.module {
     font-weight: bold;
 }
@@ -3496,6 +3548,7 @@ div.section-inner {
     width: 1000px;
     padding-left: 20px;
     padding-right: 20px;
+    height: 95px;
 }
 #content .node p, #content .node ul li {
     font-weight: 100;
@@ -3503,7 +3556,7 @@ div.section-inner {
 input {
     border: 0px;
     height: 35px;
-    font-size: 1.1em;
+    font-size: 1.5em;
     padding: 0em 1em;
 }
 textarea {
@@ -3966,11 +4019,11 @@ div.loading-spinner {
     margin: 0px 0px 20px;
     color: white;
     border-bottom: 2px solid #E12756;
-    min-height: 125px;
+    min-height: 122px;
     background: #3F4D57;
 }
 #title-bar.title-bar-orange {
-    background-color: #4f6de7;
+/*    background-color: #4f6de7;*/
 }
 #title-bar.title-bar-red {
     background-color: #D92238;
@@ -4140,7 +4193,7 @@ div.loading-spinner {
 .book-block, .title-block {
     float: left;
     width: 150px;
-    margin-right: 20px;
+    margin-right: 17px;
     background-color: white;
     position: relative;
     margin-bottom: 40px;
@@ -4209,7 +4262,7 @@ div.loading-spinner {
 }
 .book-block-title, .book-block-author, .book-block-price {
     width: 100%;
-    overflow: hidden;
+    /*overflow: hidden;*/
     text-overflow: ellipsis;
     white-space: nowrap;
     box-sizing: border-box;
@@ -4217,8 +4270,9 @@ div.loading-spinner {
     padding: 0px 10px;
 }
 .book-block-title {
+    margin-top: 2px;
     font-weight: 400;
-    font-size: 1em;
+    font-size: 1.5em;
     color: black;
     height: 4em;
     text-overflow: initial;
@@ -4835,7 +4889,7 @@ img#pl-img {
     padding: 10px;
     padding-left: 20px;
     min-height: 30px;
-    font-size: 1.2em;
+    font-size: 1.5em;
     font-weight: bold;
     background-color: #F8F8F8;
     margin-bottom: 10px;
@@ -4924,7 +4978,7 @@ img#pl-img {
     margin-bottom: 15px;
     opacity: 0.8;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
-    font-size: 1.1em;
+    font-size: 1.5em;
     cursor: pointer;
 }
 .facet-level-icon-level {

@@ -1,10 +1,26 @@
-angular.module("moviefy").controller("MovieListCtrl", function($scope, Movies, $location, $timeout) {
+angular.module("moviefy").controller("ItemListCtrl", function($scope, Items, $location, $timeout, Properties) {
 
 
    //debugger;
-   var movies = Movies.data.results;
-   $scope.nItems = movies.length;
 
+   var items = Items.results;
+   $scope.nItems = items.length;
+
+   $scope.getType = function() {
+      return $location.$$path.indexOf("movies") > -1 ? Properties.itemType.Movie : Properties.itemType.Serie
+   };
+
+   $scope.isMovie = function(){
+
+      return $scope.getType() === Properties.itemType.Movie;
+
+   };
+
+   $scope.isSerie = function(){
+
+      return $scope.getType() === Properties.itemType.Serie;
+
+   };
    // Setting up the pagination.
    $scope.pagination = {
 
@@ -16,7 +32,7 @@ angular.module("moviefy").controller("MovieListCtrl", function($scope, Movies, $
          var last = first + $scope.pagination.itemsPerPage;
          
          // go to selected view.
-         $scope.movies = movies.slice(first, last);
+         $scope.items = items.slice(first, last);
       },
 
       // current page.
@@ -33,11 +49,10 @@ angular.module("moviefy").controller("MovieListCtrl", function($scope, Movies, $
    $scope.goTo = function(movieId) {
 
       // Forzamos el ciclo digest con ejecutando la redirección dentro de un $timeout.
-      $timeout(function() { $location.path("/movies/details/" + movieId); }, 100);
+      $timeout(function() { $location.path("/items/details/" + movieId); }, 100);
    };
 
    // bringing the first page of results
-   //$scope.pagination.pageChange();
-   $scope.movies = movies
+   $scope.pagination.pageChange();
 
 });

@@ -5,7 +5,7 @@
 
     <!--<title>MovieFy</title>-->
     <!-- Loading Bootstrap styles -->
-    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
     <!-- Loading Font Awesome styles -->
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">-->
     <!-- Loading angular-loading-bar styles -->
@@ -37,24 +37,20 @@
             <div id="content">
                 <div id="title-bar" class="title-bar-orange" >
                     <div class="section-inner cf">
-                        <div id="title-bar-breadcrumb">
-                            <div class="breadcrumb">
-
-                                <a href="#/movies">Home</a>&nbsp; > &nbsp;
-                                <a href="#/movies" class="active">Movies</a>&nbsp;
-                            </div>
-                        </div>
-                        <div id="title-bar-title"><h1>All movies</h1></div>
-                        <div id="title-bar-right"></div>
+                        <p>&nbsp;</p>
+                        <nav ng-controller="NavigationBarCtrl" class="navigation-bar">
+                            <ul class="nav nav-tabs">
+                                <li role="presentation" ng-class="{ 'active': routeIsMovies() }">
+                                    <a href="#/search/movies">Movies</a>
+                                </li>
+                                <li role="presentation" ng-class="{ 'active': routeIsSeries() }">
+                                    <a href="#/search/series">Series</a>
+                                </li>
+                            </ul>
+                        </nav>
                     </div>
                 </div>
 
-                <div class="section-inner cf">
-                    <div id="messages-container">
-                    </div>
-                </div>
-
-                <a name="main-content" id="main-content"></a>
                 <section ng-view></section>
 
             </div>
@@ -68,21 +64,8 @@
         <div class="section-inner cf">
             <div class="footer-bottom-block">
                 <div class="footer-bottom-block-left">
-
                     <br />
-
                 </div>
-            </div>
-            <div class="footer-bottom-block footer-contact-us">
-                <a href="/books/info/packt/contact-us">Contact Us</a>
-            </div>
-            <div class="footer-bottom-block">
-
-            </div>
-            <div class="footer-bottom-block">
-
-            </div>
-            <div class="footer-bottom-block">
             </div>
         </div>
     </div>
@@ -114,14 +97,14 @@
 
 <!-- Loading filters -->
 <script src="scripts/filters/BuildImage.js"></script>
+<script src="scripts/filters/CheckResults.js"></script>
 
 <!-- Loading controllers -->
-<script src="scripts/controllers/MovieList.js"></script>
+<script src="scripts/controllers/NavigationBar.js"></script>
+<script src="scripts/controllers/ItemList.js"></script>
 
 <!-- Loading directives -->
-<script src="scripts/directives/MovieItem.js"></script>
-
-
+<script src="scripts/directives/Item.js"></script>
 
 </body>
 </html>
