@@ -7,6 +7,7 @@ angular.module("moviefy").config(function(BackendProvider, Properties) {
    BackendProvider.setCorsRequests();
    BackendProvider.setBackendUrl(Properties.backendUrl);
    BackendProvider.setBackendImagesUrl(Properties.backendImagesUrl);
+   BackendProvider.setPersistedBackendUrl(Properties.persistedBackendUrl);
 
 });
 
@@ -34,6 +35,26 @@ angular.module("moviefy").config(function($routeProvider) {
       resolve: {
          Items: ["Backend", function(Backend) {
             return Backend.getItems();
+         }]
+      }
+   });
+
+   $routeProvider.when("/saved/movies", {
+      controller: "ItemListCtrl",
+      templateUrl: "views/ItemList.html",
+      resolve: {
+         Items: ["Backend", function (Backend) {
+            return Backend.getPersistedItems();
+         }]
+      }
+   });
+
+   $routeProvider.when("/saved/series", {
+      controller: "ItemListCtrl",
+      templateUrl: "views/ItemList.html",
+      resolve: {
+         Items: ["Backend", function (Backend) {
+            return Backend.getPersistedItems();
          }]
       }
    });

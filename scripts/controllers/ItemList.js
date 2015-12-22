@@ -1,13 +1,25 @@
 angular.module("moviefy").controller("ItemListCtrl", function($scope, Items, $location, $timeout, Properties) {
 
-
    //debugger;
 
-   var items = Items.results;
+   var items = [];
+
+   if (Items !== undefined) {
+      if (Items.results !== undefined) {
+         items = Items.results;
+      }
+      else {
+         items = Items;
+      }
+   }
+
    $scope.nItems = items.length;
 
    $scope.getType = function() {
-      return $location.$$path.indexOf("movies") > -1 ? Properties.itemType.Movie : Properties.itemType.Serie
+      if ($location.$$path.indexOf("saved/movies") > -1) return Properties.persistedItemType.Movie;
+      if ($location.$$path.indexOf("saved/series") > -1) return Properties.persistedItemType.Serie;
+      if ($location.$$path.indexOf("movies") > -1) return Properties.itemType.Movie;
+      if ($location.$$path.indexOf("series") > -1) return Properties.itemType.Serie;
    };
 
    $scope.isMovie = function(){

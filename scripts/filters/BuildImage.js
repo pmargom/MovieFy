@@ -1,5 +1,5 @@
 
-angular.module("moviefy").filter("buildImage", function(Properties) {
+angular.module("moviefy").filter("buildImage", function(Properties, $location) {
 
    return function setFullImage(image) {
 

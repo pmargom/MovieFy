@@ -8,5 +8,9 @@ angular.module("moviefy").constant("Properties", {
       Movie: "movie",
       Serie: "tv"
    },
-   movieFyUrl: "http://pmgdev-i.cloudapp.net/MovieFy/api"
+   persistedBackendUrl: "http://pmgdev-i.cloudapp.net/MovieFy/api",
+   persistedItemType: {
+      Movie: "movies",
+      Serie: "series"
+   }
 });

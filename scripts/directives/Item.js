@@ -32,6 +32,18 @@ angular.module("moviefy").directive("item", function(Properties) {
             return scope.type === Properties.itemType.Serie;
 
          };
+
+         scope.isPersistedMovie = function(){
+
+            return scope.type === Properties.persistedItemType.Movie;
+
+         };
+
+         scope.isPersistedSerie = function(){
+
+            return scope.type === Properties.persistedItemType.Serie;
+
+         };
       }
    };
 });

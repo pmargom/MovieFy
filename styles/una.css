@@ -1,9 +1,15 @@
 /* CUSTOM CSS */
+.pagination {
+    display: inline-block;
+    padding-left: 0;
+    margin: 0px 0;
+    border-radius: 4px;
+    margin-left: -30px;
+    font-size: 1.5em;
+}
 .saved-link {
     border: solid 0px red;
     font-size: 1.75em;
-    float: right;
-    margin-right: 150px;
     text-decoration: underline;
 }
 
@@ -44,7 +50,10 @@
 .paginationclass{
     /*border: solid 1px red;*/
     width: 450px;
-    margin: 19px 28px;
+    margin-left: 30px;
+    margin-bottom: 10px;
+    float:left;
+    /*border: solid 1px red;*/
 }
 
 
@@ -3558,6 +3567,7 @@ input {
     height: 35px;
     font-size: 1.5em;
     padding: 0em 1em;
+    width: 100%;
 }
 textarea {
     border: 0px;
@@ -4175,7 +4185,7 @@ div.loading-spinner {
     color: black;
 }
 .panel-pane {
-    padding-bottom: 50px;
+    padding-bottom: 0px;
     clear: both;
 }
 .panel-pane.odd {
