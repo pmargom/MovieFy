@@ -38,7 +38,7 @@
 .nav-tabs {
     /*border-bottom: 1px solid #4f6de7 ;*/
     margin-top: 43px;
-    margin-left: -55px;
+    margin-left: -35px;
 }
 
 .paginationclass{
@@ -4192,7 +4192,7 @@ div.loading-spinner {
 }
 .book-block, .title-block {
     float: left;
-    width: 150px;
+    width: 143px;
     margin-right: 17px;
     background-color: white;
     position: relative;
