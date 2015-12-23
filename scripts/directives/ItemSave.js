@@ -16,7 +16,7 @@ angular.module("moviefy").directive("itemSave", function(Properties, MovieFyApi)
             scope.save = function (event) {
 
                 event.stopPropagation();
-                alert('Saving');
+                //alert('Saving');
 
             };
 

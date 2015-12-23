@@ -57,7 +57,7 @@ angular.module("moviefy").controller("ItemListCtrl", function($scope, Items, $lo
 
    $scope.viewDetails = function(idItem) {
 
-      alert('Showing details for item with id: ' + idItem);
+      //alert('Showing details for item with id: ' + idItem);
 
    };
 
