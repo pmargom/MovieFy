@@ -1,16 +1,28 @@
 /* CUSTOM CSS */
+
+.unsave-item {
+    color:red
+}
+
+.save-item {
+    color: #5B94D6;
+}
+
 .pagination {
     display: inline-block;
     padding-left: 0;
     margin: 0px 0;
     border-radius: 4px;
     margin-left: -30px;
-    font-size: 1.5em;
 }
 .saved-link {
-    border: solid 0px red;
-    font-size: 1.75em;
     text-decoration: underline;
+    font-size: 1.75em;
+}
+.save-link {
+    float: right;
+    margin-top: -10px;
+    cursor: pointer;
 }
 
 .book-block-price a {

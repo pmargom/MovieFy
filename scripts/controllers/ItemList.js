@@ -1,19 +1,64 @@
-angular.module("moviefy").controller("ItemListCtrl", function($scope, Items, $location, $timeout, Properties) {
+angular.module("moviefy").controller("ItemListCtrl", function($scope, Items, $location, $timeout, Properties, MovieFyApi) {
 
-   //debugger;
-
-   var items = [];
+   var tempItems = [];
 
    if (Items !== undefined) {
       if (Items.results !== undefined) {
-         items = Items.results;
+         tempItems = Items.results;
       }
       else {
-         items = Items;
+         tempItems = Items;
       }
    }
 
+   var getData = function() {
+      var its = [];
+
+      tempItems.forEach(function (item) {
+
+         its.push({
+            data: item,
+            IsSaved: false
+         });
+
+         //debugger;
+         var itemId = item.id;
+         var promise = MovieFyApi.CheckIsSaved(itemId);
+
+         promise.then(
+             function (resp) {
+                //debugger;
+                if (!$scope.$$phase) {
+                   $scope.$digest();
+                }
+
+                var item = _.find(its, function(it){ return it.data.id === itemId; });
+                if (typeof(item) !== "undefined") {
+                   item.IsSaved = resp;
+                }
+             },
+             function() {
+                //x = false;
+             }
+         );
+
+
+
+      });
+
+      return its;
+   };
+
+   //debugger;
+   var items = getData();
+
    $scope.nItems = items.length;
+
+   $scope.viewDetails = function(idItem) {
+
+      alert('Showing details for item with id: ' + idItem);
+
+   };
 
    $scope.getType = function() {
       if ($location.$$path.indexOf("saved/movies") > -1) return Properties.persistedItemType.Movie;
@@ -33,6 +78,19 @@ angular.module("moviefy").controller("ItemListCtrl", function($scope, Items, $lo
       return $scope.getType() === Properties.itemType.Serie;
 
    };
+
+   $scope.isPersistedMovie = function(){
+
+      return $scope.getType() === Properties.persistedItemType.Movie;
+
+   };
+
+   $scope.isPersistedSerie = function(){
+
+      return $scope.getType()  === Properties.persistedItemType.Serie;
+
+   };
+
    // Setting up the pagination.
    $scope.pagination = {
 

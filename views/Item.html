@@ -4,15 +4,15 @@
         <div class="book-block">
             <div class="book-block-icon-books">
             </div>
-            <img src="{{ ::item.poster_path | buildImage }}" class="bookimage" alt="{{ ::item.original_title }}" title="{{ ::item.original_title }}" />
-            <div ng-show="isMovie()" class="book-block-title">
-                {{  ::item.original_title }}
+            <img src="{{ ::item.data.poster_path | buildImage }}" class="bookimage" alt="{{ ::item.data.original_title }}" title="{{ ::item.data.original_title }}" />
+            <div ng-show="isMovie() || isPersistedMovie()" class="book-block-title">
+                {{  ::item.data.original_title }}
             </div>
-            <div ng-show="isSerie()" class="book-block-title">
-                {{  ::item.original_name }}
+            <div ng-show="isSerie() || isPersistedSerie()" class="book-block-title">
+                {{  ::item.data.original_name }}
             </div>
             <div class="book-block-price">
-                <a href="javascript:alert('not yet implemented')" title="Save this item in my own database">save</a>
+                <item-save item="item" on-item-click="viewDetails(idItem)"></item-save>
             </div>
         </div>
     </div>

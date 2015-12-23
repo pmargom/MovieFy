@@ -13,12 +13,11 @@ angular.module("moviefy").directive("item", function(Properties) {
          onItemClick: "&"
       },
 
-      link: function(scope, item) {
+      link: function(scope, it) {
 
-         item.bind("click", function() {
+         it.bind("click", function() {
 
-            //alert("dentro de un movie item")
-            scope.onItemClick({ id: scope.item.id });
+            scope.onItemClick({ idItem: scope.item.id });
          });
 
          scope.isMovie = function(){
@@ -44,6 +43,7 @@ angular.module("moviefy").directive("item", function(Properties) {
             return scope.type === Properties.persistedItemType.Serie;
 
          };
+
       }
    };
 });

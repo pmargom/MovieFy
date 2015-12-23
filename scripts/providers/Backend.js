@@ -5,6 +5,7 @@ angular.module("moviefy").provider("Backend", function($httpProvider) {
    var backendImagesUrl = "";
    var persistedBackendImagesUrl = "";
    var apiKey = "";
+   var persistedMovies = [];
 
    return {
 
@@ -52,12 +53,11 @@ angular.module("moviefy").provider("Backend", function($httpProvider) {
                $http.get(fullUrl).then(
                   function (resp) {
 
-                     //debugger;
                      defer.resolve(resp.data);
+
                   },
                   function (error) {
-                     //debugger;
-                     defer.reject(error);
+                     defer.reject(null);
                   }
                );
 
@@ -69,8 +69,8 @@ angular.module("moviefy").provider("Backend", function($httpProvider) {
 
                var itemType = $location.$$path.indexOf("movies") > -1 ? Properties.persistedItemType.Movie : Properties.persistedItemType.Serie;
                var fullUrl = persistedBackendImagesUrl + "/" + itemType;
-               var defer = $q.defer();
 
+               var defer = $q.defer();
                $http.get(fullUrl).then(
                    function (resp) {
                       defer.resolve(resp.data);
@@ -82,7 +82,6 @@ angular.module("moviefy").provider("Backend", function($httpProvider) {
 
                return defer.promise;
             }
-
          };
       }]
    };

@@ -3,12 +3,13 @@ angular.module("moviefy").controller("NavigationBarCtrl", function($scope, $rout
 
    $scope.routeIsMovies = function() {
 
-      return $route.current && $route.current.$$route && $route.current.$$route.originalPath === "/search/movies";
+      //debugger;
+      return $route.current && $route.current.$$route && ($route.current.$$route.originalPath === "/search/movies" || $route.current.$$route.originalPath === "/saved/movies");
    };
 
    $scope.routeIsSeries = function() {
 
-      return $route.current && $route.current.$$route && $route.current.$$route.originalPath === "/search/series";
+      return $route.current && $route.current.$$route && ($route.current.$$route.originalPath === "/search/series" || $route.current.$$route.originalPath === "/saved/series");
    };
 
 });

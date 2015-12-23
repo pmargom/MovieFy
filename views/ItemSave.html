@@ -1,0 +1,6 @@
+
+<i class="fa fa-database save-link"
+   ng-class="{ 'save-item': isPersisted(), 'unsave-item': !isPersisted() }"
+   ng-click="save($event)"
+   title="{{ !isPersisted() && 'save in database' || 'delete from database' }}"
+></i>

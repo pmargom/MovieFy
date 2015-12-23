@@ -58,8 +58,17 @@
             <div class="inside">
                 <div class="panel-pane">
                     <div class="content">
-                            <span class="saved-link">
-                                <a name="main-content" id="main-content" href="#/saved/movies">Load saved movies</a>
+                            <span class="saved-link" ng-show="isMovie()">
+                                <a name="main-content" id="main-content" href="#/saved/movies"><i class="fa fa-database"></i> Load saved movies</a>
+                            </span>
+                            <span class="saved-link" ng-show="isPersistedMovie()">
+                                <a name="main-content" id="main-content" href="#/search/movies"><i class="fa fa-database"></i> Back</a>
+                            </span>
+                            <span class="saved-link" ng-show="isSerie()">
+                                <a name="main-content" id="main-content" href="#/saved/series"><i class="fa fa-database"></i> Load saved series</a>
+                            </span>
+                            <span class="saved-link" ng-show="isPersistedSerie()">
+                                <a name="main-content" id="main-content" href="#/search/series"><i class="fa fa-database"></i> Back</a>
                             </span>
                         <div class="paginator_top">
                             <div class="solr-pager cf">
@@ -84,9 +93,10 @@
                         </div>
 
                         <span ng-show="::nItems | checkResults" style="font-size: 1.75em">No results were found.</span>
-                        <span ng-show="::nItems | checkResults">No results were found.</span>
-                        <span ng-repeat="item in items | filter:searchText">
-                            <item item="item" type="getType()"></item>
+                        <span ng-repeat="item in items | filter:searchText track by item.data.id">
+                            <item item="item"
+                                  type="getType()"
+                                  on-item-click="viewDetails(idItem)"></item>
                         </span>
                     </div>
                 </div>
