@@ -38,11 +38,12 @@ angular.module("moviefy").controller("ItemListCtrl", function($scope, Items, $lo
                 }
              },
              function() {
-                //x = false;
+                var item = _.find(its, function(it){ return it.data.id === itemId; });
+                if (typeof(item) !== "undefined") {
+                   item.IsSaved = false;
+                }
              }
          );
-
-
 
       });
 

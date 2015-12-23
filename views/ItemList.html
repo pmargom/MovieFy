@@ -37,7 +37,13 @@
                                                         <div ng-show="isMovie()" class="facet-cat-wrapper cf">
                                                             <div class="facet-cat-text" style="margin-left: 13px">Movies ({{::nItems }})</div>
                                                         </div>
+                                                        <div ng-show="isPersistedMovie()" class="facet-cat-wrapper cf">
+                                                            <div class="facet-cat-text" style="margin-left: 13px">Movies ({{::nItems }})</div>
+                                                        </div>
                                                         <div ng-show="isSerie()" class="facet-cat-wrapper cf">
+                                                            <div class="facet-cat-text" style="margin-left: 13px">Series ({{::nItems}})</div>
+                                                        </div>
+                                                        <div ng-show="isPersistedSerie()" class="facet-cat-wrapper cf">
                                                             <div class="facet-cat-text" style="margin-left: 13px">Series ({{::nItems}})</div>
                                                         </div>
                                                     </div>
