@@ -65,17 +65,18 @@
                 <div class="panel-pane">
                     <div class="content">
                         <span class="saved-link" ng-show="isMovie()">
-                            <a name="main-content" id="main-content" href="#/saved/movies"><i class="fa fa-database"></i> Load saved movies</a>
+                            <a name="main-content" id="main-content" href="#/saved/movies"><i class="fa fa-database"></i> Saved movies</a>
                         </span>
                         <span class="saved-link" ng-show="isPersistedMovie()">
                             <a name="main-content" id="main-content" href="#/search/movies"><i class="fa fa-database"></i> Back</a>
                         </span>
                         <span class="saved-link" ng-show="isSerie()">
-                            <a name="main-content" id="main-content" href="#/saved/series"><i class="fa fa-database"></i> Load saved series</a>
+                            <a name="main-content" id="main-content" href="#/saved/series"><i class="fa fa-database"></i> Saved series</a>
                         </span>
                         <span class="saved-link" ng-show="isPersistedSerie()">
                             <a name="main-content" id="main-content" href="#/search/series"><i class="fa fa-database"></i> Back</a>
                         </span>
+                        <br>
                         <div class="paginationclass">
                             <i ng-show="currentPage > 1"
                                ng-click="getDataPerPage(-currentPage+1)"
