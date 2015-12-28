@@ -47,11 +47,11 @@ angular.module("moviefy").config(function($routeProvider) {
    $routeProvider.when("/saved/movies", {
       controller: "ItemListCtrl",
       templateUrl: "views/ItemList.html",
-      resolve: {
-         Items: ["Backend", function (Backend) {
-            return Backend.getPersistedItems();
-         }]
-      }
+      //resolve: {
+      //   Items: ["Backend", function (Backend) {
+      //      return Backend.getPersistedItems();
+      //   }]
+      //}
    });
 
    $routeProvider.when("/saved/series", {

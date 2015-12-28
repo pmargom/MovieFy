@@ -7,7 +7,7 @@ angular.module("moviefy").controller("ItemListCtrl", function($scope, $location,
 
    $scope.currentPage = $routeParams.page || 1;
 
-   var getData = function(tempItems) {
+   var updateDataWithSavedInfo = function(tempItems) {
       var its = [];
 
       tempItems.forEach(function (item) {
@@ -58,9 +58,7 @@ angular.module("moviefy").controller("ItemListCtrl", function($scope, $location,
    };
 
    $scope.isMovie = function(){
-
       return $scope.getType() === Properties.itemType.Movie;
-
    };
 
    $scope.isSerie = function(){
@@ -81,7 +79,6 @@ angular.module("moviefy").controller("ItemListCtrl", function($scope, $location,
 
    };
 
-
    // Redirect the web browser to the selected item.
    $scope.goTo = function(movieId) {
 
@@ -96,20 +93,45 @@ angular.module("moviefy").controller("ItemListCtrl", function($scope, $location,
       $timeout(function() { $location.path("/search/movies/page/" + newPage); }, 100);
    };
 
-   // main
+   var loadData = function() {
 
-   MovieFyApi.getItems($scope.currentPage).then(
-      function (resp) {
+      //debugger;
+      if ($scope.isMovie()) {
 
-         $scope.items = getData(resp.results);
-         $scope.nItems = resp.total_results;
-         $scope.totalPages = resp.total_pages;
+         MovieFyApi.getItems($scope.currentPage).then(
+            function (resp) {
 
-      },
-      function (error) {
+               $scope.items = updateDataWithSavedInfo(resp.results);
+               $scope.nItems = resp.total_results;
+               $scope.totalPages = resp.total_pages;
 
+            },
+            function (error) {
+
+            }
+         );
       }
-   );
+
+      if ($scope.isPersistedMovie()) {
+
+         MovieFyApi.getPersistedItems().then(
+            function (resp) {
+
+               //debugger;
+               $scope.items = updateDataWithSavedInfo(resp);
+               $scope.nItems = resp.length;
+               $scope.totalPages = resp.length;
+
+            },
+            function (error) {
+
+            }
+         );
+      }
+   };
+
+   // main
+   loadData();
 
 
 });
