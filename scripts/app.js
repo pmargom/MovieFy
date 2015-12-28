@@ -22,11 +22,16 @@ angular.module("moviefy").config(function($routeProvider) {
    $routeProvider.when("/search/movies", {
       controller: "ItemListCtrl",
       templateUrl: "views/ItemList.html",
-      resolve: {
-         Items: ["Backend", function(Backend) {
-            return Backend.getItems();
-         }]
-      }
+      //resolve: {
+      //   Items: ["Backend", function(Backend) {
+      //      return Backend.getItems();
+      //   }]
+      //}
+   });
+
+   $routeProvider.when("/search/movies/page/:page", {
+      controller: "ItemListCtrl",
+      templateUrl: "views/ItemList.html"
    });
 
    $routeProvider.when("/search/series", {

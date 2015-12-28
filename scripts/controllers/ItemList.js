@@ -1,17 +1,13 @@
-angular.module("moviefy").controller("ItemListCtrl", function($scope, Items, $location, $timeout, Properties, MovieFyApi) {
+//angular.module("moviefy").controller("ItemListCtrl", function($scope, Items, $location, $timeout, Properties, MovieFyApi) {
+angular.module("moviefy").controller("ItemListCtrl", function($scope, $location, $timeout, $routeParams, Properties, MovieFyApi) {
 
-   var tempItems = [];
 
-   if (Items !== undefined) {
-      if (Items.results !== undefined) {
-         tempItems = Items.results;
-      }
-      else {
-         tempItems = Items;
-      }
-   }
+   //debugger;
+   $scope.items = [];
 
-   var getData = function() {
+   $scope.currentPage = $routeParams.page || 1;
+
+   var getData = function(tempItems) {
       var its = [];
 
       tempItems.forEach(function (item) {
@@ -23,9 +19,7 @@ angular.module("moviefy").controller("ItemListCtrl", function($scope, Items, $lo
 
          //debugger;
          var itemId = item.id;
-         var promise = MovieFyApi.CheckIsSaved(itemId);
-
-         promise.then(
+         MovieFyApi.CheckIsSaved(itemId).then(
              function (resp) {
                 //debugger;
                 if (!$scope.$$phase) {
@@ -49,11 +43,6 @@ angular.module("moviefy").controller("ItemListCtrl", function($scope, Items, $lo
 
       return its;
    };
-
-   //debugger;
-   var items = getData();
-
-   $scope.nItems = items.length;
 
    $scope.viewDetails = function(idItem) {
 
@@ -92,29 +81,6 @@ angular.module("moviefy").controller("ItemListCtrl", function($scope, Items, $lo
 
    };
 
-   // Setting up the pagination.
-   $scope.pagination = {
-
-      // Page changing.
-      pageChange: function() {
-         
-         // Getting the first and the last item of the page to be shown.
-         var first = ($scope.pagination.currentPage - 1) * $scope.pagination.itemsPerPage;
-         var last = first + $scope.pagination.itemsPerPage;
-         
-         // go to selected view.
-         $scope.items = items.slice(first, last);
-      },
-
-      // current page.
-      currentPage: 1,
-
-      // Total number of items.
-      totalItems: $scope.nItems,
-
-      // Page size.
-      itemsPerPage: 6
-   };
 
    // Redirect the web browser to the selected item.
    $scope.goTo = function(movieId) {
@@ -123,7 +89,27 @@ angular.module("moviefy").controller("ItemListCtrl", function($scope, Items, $lo
       $timeout(function() { $location.path("/items/details/" + movieId); }, 100);
    };
 
-   // bringing the first page of results
-   $scope.pagination.pageChange();
+   $scope.getDataPerPage = function(currentPage) {
+      //debugger;
+      var newPage = parseInt($scope.currentPage) + parseInt(currentPage);
+      //alert('new url: ' + $location.$$url + "/page/" + newPage);
+      $timeout(function() { $location.path("/search/movies/page/" + newPage); }, 100);
+   };
+
+   // main
+
+   MovieFyApi.getItems($scope.currentPage).then(
+      function (resp) {
+
+         $scope.items = getData(resp.results);
+         $scope.nItems = resp.total_results;
+         $scope.totalPages = resp.total_pages;
+
+      },
+      function (error) {
+
+      }
+   );
+
 
 });

@@ -64,39 +64,43 @@
             <div class="inside">
                 <div class="panel-pane">
                     <div class="content">
-                            <span class="saved-link" ng-show="isMovie()">
-                                <a name="main-content" id="main-content" href="#/saved/movies"><i class="fa fa-database"></i> Load saved movies</a>
-                            </span>
-                            <span class="saved-link" ng-show="isPersistedMovie()">
-                                <a name="main-content" id="main-content" href="#/search/movies"><i class="fa fa-database"></i> Back</a>
-                            </span>
-                            <span class="saved-link" ng-show="isSerie()">
-                                <a name="main-content" id="main-content" href="#/saved/series"><i class="fa fa-database"></i> Load saved series</a>
-                            </span>
-                            <span class="saved-link" ng-show="isPersistedSerie()">
-                                <a name="main-content" id="main-content" href="#/search/series"><i class="fa fa-database"></i> Back</a>
-                            </span>
-                        <div class="paginator_top">
-                            <div class="solr-pager cf">
-                                <div class="solr-pager-page-selector">
-
-                                    <div class="paginationclass">
-                                    <uib-pagination
-                                            ng-change="pagination.pageChange()"
-                                            ng-model="pagination.currentPage"
-                                            total-items="pagination.totalItems"
-                                            items-per-page="pagination.itemsPerPage"
-                                            boundary-links="true"
-                                            first-text="&lt;&lt;"
-                                            last-text="&gt;&gt;"
-                                            previous-text="&lt;"
-                                            next-text="&gt;">
-                                    </uib-pagination>
-                                    </div>
-                                </div>
-
-                            </div>
+                        <span class="saved-link" ng-show="isMovie()">
+                            <a name="main-content" id="main-content" href="#/saved/movies"><i class="fa fa-database"></i> Load saved movies</a>
+                        </span>
+                        <span class="saved-link" ng-show="isPersistedMovie()">
+                            <a name="main-content" id="main-content" href="#/search/movies"><i class="fa fa-database"></i> Back</a>
+                        </span>
+                        <span class="saved-link" ng-show="isSerie()">
+                            <a name="main-content" id="main-content" href="#/saved/series"><i class="fa fa-database"></i> Load saved series</a>
+                        </span>
+                        <span class="saved-link" ng-show="isPersistedSerie()">
+                            <a name="main-content" id="main-content" href="#/search/series"><i class="fa fa-database"></i> Back</a>
+                        </span>
+                        <div class="paginationclass">
+                            <i ng-show="currentPage > 1"
+                               ng-click="getDataPerPage(-currentPage+1)"
+                               class="fa fa-fast-backward"
+                               title="first"></i>
+                            &nbsp;
+                            <i ng-show="currentPage > 1"
+                               ng-click="getDataPerPage(-1)"
+                               class="fa fa-step-backward"
+                               title="previous"></i>
+                            &nbsp;
+                            <span>Page {{::currentPage }} of {{:: totalPages }}</span>
+                            &nbsp;
+                            <i ng-show="currentPage < totalPages"
+                               ng-click="getDataPerPage(1)"
+                               class="fa fa-step-forward"
+                               title="next"></i>
+                            &nbsp;
+                            <i ng-show="currentPage < totalPages"
+                               ng-click="getDataPerPage(totalPages-currentPage)"
+                               class="fa fa-fast-forward"
+                               title="last"></i>
+                            &nbsp;
                         </div>
+                        <div class="paginator_top"><div class="solr-pager cf"><div class="solr-pager-page-selector"></div></div></div>
 
                         <span ng-show="::nItems | checkResults" style="font-size: 1.75em">No results were found.</span>
                         <span ng-repeat="item in items | filter:searchText track by item.data.id">

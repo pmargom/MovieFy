@@ -1,9 +1,13 @@
 
-angular.module("moviefy").filter("buildImage", function(Properties, $location) {
+angular.module("moviefy").filter("buildImage", function($location, Properties) {
 
    return function setFullImage(image) {
 
-      //debugger;
+      if (image == null) {
+         return "images/" + Properties.imageNotFound;
+      }
+
+
       return Properties.backendImagesUrl + image;
 
    }

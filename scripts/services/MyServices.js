@@ -24,6 +24,28 @@ angular.module("moviefy").service("MovieFyApi", function($location, Properties, 
 
         return defer.promise;
 
-    }
+    };
+
+    this.getItems = function(page) {
+
+
+        var itemType = $location.$$path.indexOf("movies") > -1 ? Properties.itemType.Movie + "/popular" : Properties.itemType.Serie;
+        var fullUrl = Properties.backendUrl + "/" + itemType + "?api_key=" + Properties.apiKey + "&page=" + page;
+//debugger;
+        var defer = $q.defer();
+
+        $http.get(fullUrl).then(
+           function (resp) {
+               defer.resolve(resp.data);
+           },
+           function (error) {
+               defer.reject(null);
+           }
+        );
+
+        return defer.promise;
+    };
+
+
 });
 

@@ -45,7 +45,7 @@ angular.module("moviefy").provider("Backend", function($httpProvider) {
             // get the list of items from www.themoviedb.com
             getItems: function() {
 
-               var itemType = $location.$$path.indexOf("movies") > -1 ? Properties.itemType.Movie : Properties.itemType.Serie;
+               var itemType = $location.$$path.indexOf("movies") > -1 ? Properties.itemType.Movie + "/upcoming" : Properties.itemType.Serie;
                var fullUrl = backendUrl + "/" + itemType + "?api_key=" + apiKey;
 
                var defer = $q.defer();
