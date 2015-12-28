@@ -78,28 +78,33 @@
                         </span>
                         <br>
                         <div class="paginationclass">
-                            <i ng-show="currentPage > 1"
-                               ng-click="getDataPerPage(-currentPage+1)"
-                               class="fa fa-fast-backward"
-                               title="first"></i>
+                            <span ng-show="currentPage > 1">
+                                <i ng-click="getDataPerPage(-currentPage+1)"
+                                   class="fa fa-fast-backward"
+                                   title="first"></i>
                             &nbsp;
-                            <i ng-show="currentPage > 1"
-                               ng-click="getDataPerPage(-1)"
-                               class="fa fa-step-backward"
-                               title="previous"></i>
+                            </span>
+                            <span ng-show="currentPage > 1">
+                               <i ng-click="getDataPerPage(-1)"
+                                  class="fa fa-step-backward"
+                                  title="previous"></i>
                             &nbsp;
+                            </span>
+
                             <span>Page {{::currentPage }} of {{:: totalPages }}</span>
                             &nbsp;
-                            <i ng-show="currentPage < totalPages"
-                               ng-click="getDataPerPage(1)"
-                               class="fa fa-step-forward"
-                               title="next"></i>
-                            &nbsp;
-                            <i ng-show="currentPage < totalPages"
-                               ng-click="getDataPerPage(totalPages-currentPage)"
-                               class="fa fa-fast-forward"
-                               title="last"></i>
-                            &nbsp;
+                            <span ng-show="currentPage < totalPages">
+                                <i ng-click="getDataPerPage(1)"
+                                   class="fa fa-step-forward"
+                                   title="next"></i>
+                                &nbsp;
+                            </span>
+                            <span ng-show="currentPage < totalPages">
+                                <i ng-click="getDataPerPage(totalPages-currentPage)"
+                                   class="fa fa-fast-forward"
+                                   title="last"></i>
+                                &nbsp;
+                            </span>
                         </div>
                         <div class="paginator_top"><div class="solr-pager cf"><div class="solr-pager-page-selector"></div></div></div>
 
